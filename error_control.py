@@ -522,9 +522,9 @@ if __name__ == '__main__':
         import pip
         failed=pip.main(["install", 'colored'])
     from colored import fg, bg, attr
-    print(hamming_check('11100110010'))
-    # while True:
-    #     main()
-    #     if str(input("%s%sContinue press [Enter] Exit press [q]: %s" %(fg("white"),bg("grey_46"),attr("reset")))) == ('q' or 'Q'):
-    #         exit()
+#     print(hamming_check('11100110010'))
+    while True:
+        main()
+        if str(input("%s%sContinue press [Enter] Exit press [q]: %s" %(fg("white"),bg("grey_46"),attr("reset")))) == ('q' or 'Q'):
+            exit()
         
