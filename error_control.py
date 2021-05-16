@@ -293,13 +293,18 @@ def hamming_check(codeword):
         after = ''.join(color_bit[(error_dec*-1):])
         error_color = '%s%s%s%s%s%s%s' % (fg('green'), before, fg(
             'red'), after[0], fg("green"), after[1:], attr("reset"))
-        error_message = '%s%sFound an error:        %s %s [position:%d]' % (
+        error_message = '%s%s\nFound an error:        %s %s [position:%d]' % (
             fg('green'), attr("bold"), error_color, attr("bold"), error_dec)
         color_bit = list(codeword)
         color_bit.reverse()
         before = ''.join(color_bit[:error_dec*-1])
         after = ''.join(color_bit[(error_dec*-1):])
-        curr = '1' if after[0] == '0' else '1'
+        curr = after[0]
+        if curr == '0' :
+            curr = '1'
+        else :
+            curr = '0'
+        print(after[0],curr)
         error_color = '%s%s%s%s%s%s%s' % (fg('green'), before, fg(
             'red'), curr, fg("green"), after[1:], attr("reset"))
         error_message += '\n%sLet me fix it:         %s%s%s' % (
@@ -517,8 +522,9 @@ if __name__ == '__main__':
         import pip
         failed=pip.main(["install", 'colored'])
     from colored import fg, bg, attr
-    while True:
-        main()
-        if str(input("%s%sContinue press [Enter] Exit press [q]: %s" %(fg("white"),bg("grey_46"),attr("reset")))) == ('q' or 'Q'):
-            exit()
+    print(hamming_check('11100110010'))
+    # while True:
+    #     main()
+    #     if str(input("%s%sContinue press [Enter] Exit press [q]: %s" %(fg("white"),bg("grey_46"),attr("reset")))) == ('q' or 'Q'):
+    #         exit()
         
