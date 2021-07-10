@@ -13,7 +13,7 @@
 
 
 def parity_gen(dataword, word_size, parity_type, array_size):
-    if word_size < 5: return 'word size should more than 5.'
+    # if word_size < 5: return 'word size should more than 5.'
     if parity_type == 'one-dimensional-odd':
         return parity_gen_1D(dataword, word_size, array_size, 'odd')
     elif parity_type == 'one-dimensional-even':
@@ -112,7 +112,7 @@ def combine_string(codeword, word_size):
 
 
 def checksum_gen(dataword, word_size, num_blocks):
-    if word_size <= 4: return 'word size should more than 4'
+    # if word_size <= 4: return 'word size should more than 4'
     # if dataword is not equal to word size, then add 0 at first.
     dataword = [i.zfill(word_size) for i in dataword]
     copy_dataword = ' '.join(dataword)  # keep original for return
@@ -160,8 +160,8 @@ def checksum_check(codeword, word_size, num_blocks):
 # ---------------------------------------
 
 def CRC_gen(dataword, wordsize, crc_type):
-    if wordsize <= 4:
-        return 'wordsize should more than 5'
+    # if wordsize <= 4:
+    #     return 'wordsize should more than 5'
     # if len(dataword) < len(crc_type):
     #     return 'length of dataword should more than crc-type'
     # if length dataword is less than wordsize.
@@ -186,8 +186,8 @@ def CRC_gen(dataword, wordsize, crc_type):
 
 
 def CRC_check(codeword, wordsize, crc_type):
-    if wordsize < 5:
-        return 'wordsize should more than 5'
+    # if wordsize < 5:
+    #     return 'wordsize should more than 5'
     # if len(codeword) < len(crc_type):
     #     return 'length of mx should more than gx'
     n = len(crc_type)-1  # degree of G(x)
@@ -379,7 +379,7 @@ def main():
                       "|  __| | '__| '__/ _ \| '__| | |    / _ \| '_ \| __| '__/ _ \| |\n" +\
                       "| |____| |  | | | (_) | |    | |___| (_) | | | | |_| | | (_) | |\n" +\
                       "|______|_|  |_|  \___/|_|     \_____\___/|_| |_|\__|_|  \___/|_|\n" +\
-                      "\n                Created by John Doe :3 (v.0.1)                 "
+                      "\n             Created by itsmebabysmiley :3 (v.0.1)                 "
 
     print("%s%s%s%s" % (fg("yellow"), attr("bold"), welcome_message, attr("reset")))
     print("%s----------------------------------------------------------------" %(fg('green')))
@@ -410,8 +410,8 @@ def main():
             if select_option not in [1, 2, 3, 4]:
                 print("%s%sInvalid input!%s" %(fg("red"), attr("bold"), attr("reset")))
             else:
-                if select_fun == 1: size_dataword = int(input("%sInput size of dataword(>= 5): " % (fg("yellow"))))
-                dataword = str(input("%sInput frame seperate by space( ): " % (fg("yellow"))))
+                if select_fun == 1: size_dataword = int(input("%sInput size of dataword: " % (fg("yellow"))))
+                dataword = str(input("%sPlease input frame(s) [use space( ) to separate if more than one: " % (fg("yellow"))))
                 try:
                     dataword = dataword.split(' ')
                     if checkstring(dataword) == True:
@@ -429,8 +429,8 @@ def main():
                 except:
                     return print("%s%sError !%s" % (fg("red"), attr("bold"), attr("reset")))
         elif select_fun in [3, 4]:
-            size_dataword = int(input("%sInput size of dataword(>= 5): " % (fg("yellow"))))
-            dataword = str(input("%sInput frame seperate by space( ): " % (fg("yellow"))))
+            size_dataword = int(input("%sInput size of dataword: " % (fg("yellow"))))
+            dataword = str(input("%sPlease input frame(s) [use space( ) to separate if more than one: " % (fg("yellow"))))
             try:
                 dataword = dataword.split(' ')
                 if checkstring(dataword) == True:
@@ -455,7 +455,7 @@ def main():
                 "crc-8": "111010101",
                 "crc-4": "11111"
             }
-            size_dataword = int(input(("%sInput size of dataword(>= 5): " % (fg("yellow")))))
+            size_dataword = int(input(("%sInput size of dataword: " % (fg("yellow")))))
             dataword = str(input("%sInput data: " % (fg("yellow"))))
 
             try:
